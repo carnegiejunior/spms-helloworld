@@ -1,6 +1,6 @@
 Para copiar sua imagem Docker para o **Harbor** (ou qualquer outro repositório Docker privado), você precisará seguir algumas etapas básicas. O processo inclui construir a imagem, fazer login no seu registro Harbor, marcar a imagem com o nome correto e empurrá-la para o Harbor.
 
-Aqui está um guia passo a passo para copiar sua imagem Docker para o **Harbor** em `https://harbor.devops.spms.min-saude.pt/`.
+Aqui está um guia passo a passo para copiar sua imagem Docker para o **Harbor** em `https://harbor.devops.spms.min-saude.pt`.
 
 ### 1. **Login no Harbor**
 O primeiro passo é fazer o login no seu registro Harbor. Use o seguinte comando:
@@ -17,7 +17,7 @@ Antes de empurrar a imagem, você precisa marcá-la (tag) com o nome do registro
 A estrutura do nome deve ser:
 
 ```bash
-<registry_url>/<project>/<repository>:<tag>
+<https://harbor_url.com>/<project>/<repository>:<tag>
 ```
 
 Por exemplo, se seu projeto no Harbor se chama **my-project**, o repositório da imagem se chama **my-spring-boot-app**, e a versão da imagem é **v1.0.0**, você usaria algo assim:
@@ -55,7 +55,7 @@ Aqui está um exemplo completo das etapas em sequência:
 3. **Marque a imagem:**
 
    ```bash
-   docker tag my-spring-boot-app:latest harbor.devops.spms.min-saude.pt/my-project/my-spring-boot-app:v1.0.0
+   docker tag spms-helloworld-app:v1.0.0 harbor.devops.spms.min-saude.pt/servidorterminologias/spms-helloworld-app:v1.0.0
    ```
 
 4. **Empurre a imagem para o Harbor:**
@@ -120,6 +120,7 @@ docker push harbor.devops.spms.min-saude.pt/servidorterminologias/spms-helloworl
 #### SSH
 ```
 git remote add origin git@github.com:carnegiejunior/spms-helloworld.git
+git branch -M main
 git push -u origin main
 
 ```
@@ -128,4 +129,5 @@ git push -u origin main
 ```
 git remote add origin https://github.com/carnegiejunior/spms-helloworld.git
 git branch -M main
+git push -u origin main
 ```
