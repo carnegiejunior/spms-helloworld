@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: helloworld
+#
+server:
+  port: 8443
+  # keytool -genkeypair -alias helloworld-ssl-cert -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore helloworld-keystore.p12 -validity 3650
+  ssl:
+    key-store: classpath:ssl/helloworld-keystore.p12
+    key-store-password: '0323221330'
+    key-store-type: PKCS12
+    key-alias: helloworld-ssl-cert
